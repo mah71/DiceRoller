@@ -12,11 +12,14 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    int correct_counter = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +60,26 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void on_button_click(View view){
+    public void on_button_click(View view) {
+        TextView tv = this.findViewById(R.id.textView);
+        TextView et = this.findViewById(R.id.editText);
+        TextView tv4 = this.findViewById(R.id.textView4);
 
-      TextView tv = this.findViewById(R.id.textView);
 
         Random r = new Random();
-        int number = r.nextInt(6);
-
+        int number = r.nextInt(7-1)+1;
         tv.setText(Integer.toString(number));
-}
+        String value = et.getText().toString();
+        int Fnum = Integer.parseInt(value);
+
+        if (number == Fnum) {
+
+            tv.setText(String.valueOf(number) + " " + "Congrats !");
+            tv4.setText(String.valueOf(correct_counter));
+            correct_counter++;
+
+
+        }
+    }
+
 }
