@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static int Roll_the_dice() {
         Random r = new Random();
-        return r.nextInt(6);
+        int number = r.nextInt(7-1)+1;
+        return number;
     }
 
 
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Random r = new Random();
-        int number = r.nextInt(7-1)+1;
+        int number = r.nextInt(7-1)+1;//  maximum number is 6
         tv.setText(Integer.toString(number));
         String value = et.getText().toString();
         int Fnum = Integer.parseInt(value);
